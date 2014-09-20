@@ -9,16 +9,19 @@ file=netCDF4.Dataset('test_dataset.nc','w',format='NETCDF3_CLASSIC')
 #create x and y dimensions
 xdim = file.createDimension('x',3)
 ydim = file.createDimension('y',4)
-xval = file.createVariable('x','f8',('x'))
-yval = file.createVariable('y','f8',('y'))
+xval = file.createVariable('x','f4',('x'))
+yval = file.createVariable('y','f4',('y'))
 #follow c indexing conventions
-data = file.createVariable('data','f8',('y','x'))
+data = file.createVariable('temperature','f4',('y','x'))
 #some descriptive information is output.
 print 'shape xval, yval, data',numpy.shape(xval),numpy.shape(yval),numpy.shape(data)
 #fill in data values
-xval[:]=[1,2,3]
-yval[:]=[-2,0,2,4]
-data[:,:]=[[20,19,18],[17,16,15],[14,13,12],[11,10,9]]
+#x position in mm
+xval[:]=numpy.array([1.0,2.0,3.0])
+#y position in mm
+yval[:]=array([-2.0,0.0,2.0,4.0])
+#temperature data in degrees C
+temperature[:,:]=numpy.array([[20.0,19.5,18.0],[17.0,16.5,15.0],[14.0,13.0,12.5],[11.0,10.5,9.0]])
 #closing the file writes it
 file.close()
 #shell commands to test the dataset
