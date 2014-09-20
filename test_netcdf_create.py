@@ -1,4 +1,4 @@
-#test_netcdf: create a netcdf file with bogus data
+#test_netcdf: create a netcdf file with data representing hypothetical temperature measurements
 #Paul Kushner
 #See netCDF4 documentation at http://unidata.github.io/netcdf4-python/
 import netCDF4
