@@ -25,9 +25,13 @@ temperature[:,:]=numpy.array([[20.0,19.5,18.0],[17.0,16.5,15.0],[14.0,13.0,12.5]
 #closing the file writes it
 file.close()
 #shell commands to test the dataset
-#ncdump test_dataset.nc
-#ncdump -c test_dataset.nc
-#ncdump -h test_dataset.nc
-#ncwa -a x test_dataset.nc xave.nc
-#ncdump xave.nc
-#ncview test_dataset.nc
+#ncdump first_temperature_dataset.nc | more
+#print header and coordinate information
+#ncdump -c first_temperature_dataset.nc | more
+#print just header information
+#ncdump -h first_temperature_dataset.nc | more
+#ncks -d x,2.0 first_temperature_dataset.nc extract_x.nc
+#ncdump  extract_x.nc
+#ncks -d x,2.0,3.0 -d y,0.0,4.0 first_temperature_dataset.nc extract_xy.nc
+#ncwa -a x extract_xy.nc x_mean-extract_xy.nc
+#etc.
