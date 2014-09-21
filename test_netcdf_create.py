@@ -9,6 +9,8 @@ file=netCDF4.Dataset('first_temperature_dataset.nc','w',format='NETCDF3_CLASSIC'
 #create x and y dimensions
 xdim = file.createDimension('x',3)
 ydim = file.createDimension('y',4)
+#time dimension is "record" or "unlimited" dimension
+tdim = file.createDimension('t', None)
 xval = file.createVariable('x','f4',('x'))
 yval = file.createVariable('y','f4',('y'))
 #follow c indexing conventions
@@ -30,6 +32,8 @@ file.close()
 #ncdump -c first_temperature_dataset.nc | more
 #print just header information
 #ncdump -h first_temperature_dataset.nc | more
+#Take a look at file with ncview
+#ncview first_temperature_dataset.nc
 #ncks -d x,2.0 first_temperature_dataset.nc extract_x.nc
 #ncdump  extract_x.nc
 #ncks -d x,2.0,3.0 -d y,0.0,4.0 first_temperature_dataset.nc extract_xy.nc
