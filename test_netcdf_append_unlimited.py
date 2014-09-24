@@ -18,3 +18,4 @@ print 'shape tval, temperature',numpy.shape(tval),numpy.shape(temperature)
 file.close()
 #ncdump temperature_time_record.nc
 #ncview temperature_time_record.nc
+#added comment
