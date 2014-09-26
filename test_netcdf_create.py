@@ -10,7 +10,6 @@ file=netCDF4.Dataset('first_temperature_dataset.nc','w',format='NETCDF3_CLASSIC'
 xdim = file.createDimension('x',3)
 ydim = file.createDimension('y',4)
 #time dimension is "record" or "unlimited" dimension
-tdim = file.createDimension('t', None)
 xval = file.createVariable('x','f4',('x'))
 yval = file.createVariable('y','f4',('y'))
 #follow c indexing conventions
